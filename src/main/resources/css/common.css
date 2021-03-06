@@ -1,0 +1,55 @@
+
+/*
+
+Petite marge: 5px
+Marge intermédiaire: 20px
+Grande marge: 50px
+Famille de police: Calibri
+background: #44475a
+foreground: #282a36
+Blanc: #f8f8f2
+Rouge: #ff5555
+Orange: #ffb86c
+Vert: #50fa7b
+Bleu: #6272a4
+
+ */
+
+*{
+    -background-color: #313131;
+    -foreground-color: #525252;
+    -text-color: #FFF5EE;
+    -button-color: #525252;
+    -font-family: Calibri;
+
+}
+
+.background {
+    -fx-background-color: -background-color;
+    -fx-padding: 20px 20px 20px 20px;
+}
+
+.button {
+    -fx-background-radius: 0px;
+    -fx-background-color: grey;
+    -fx-text-fill: #FAEBD7;
+    -fx-font-size: 20px;
+    -fx-font-family: -font-family;
+    -fx-cursor: HAND;
+}
+
+.button:hover {
+    -fx-background-color: darkgrey;
+}
+
+.field {
+    -fx-background-radius: 0px;
+    -fx-background-color: -text-color;
+    -fx-font-size: 20px;
+}
+
+.title {
+    -fx-text-fill: #f8f8f2;
+    -fx-font-size: 25px;
+    -fx-padding: 0 0 5px 0;
+}

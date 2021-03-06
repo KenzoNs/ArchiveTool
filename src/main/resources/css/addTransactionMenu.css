@@ -1,0 +1,80 @@
+*{
+    -background-color: #313131;
+    -foreground-color: #525252;
+    -text-color: #FFF5EE;
+    -button-color: #525252;
+    -font-family: Calibri;
+
+}
+
+.background {
+    -fx-background-color: -background-color;
+    -fx-padding: 20px;
+}
+
+.bar{
+    -fx-background-color: -foreground-color;
+    -fx-padding: 20px;
+}
+
+.foreground{
+    -fx-background-color: -foreground-color;
+
+    -fx-padding: 20px;
+
+    -fx-min-width: 50px;
+
+    -fx-min-height: 50px;
+}
+
+.field {
+    -fx-background-radius: 0px;
+    -fx-background-color: -text-color;
+    -fx-font-size: 20px;
+    -fx-min-width: 50px;
+    -fx-min-height: 50px;
+}
+
+.search-button {
+    -fx-background-color: grey;
+    -fx-text-fill: -text-color;
+    -fx-font-size: 20px;
+    -fx-font-family: -font-family;
+    -fx-cursor: HAND;
+    -fx-background-radius: 0px 5px 5px 0;
+    -fx-min-width: 50px;
+    -fx-min-height: 50px;
+}
+
+.search-button:hover {
+    -fx-background-color: darkgrey;
+}
+
+.disconnection-button {
+    -fx-background-radius: 0px;
+    -fx-background-color: #6272a4;
+    -fx-text-fill: -text-color;
+    -fx-font-size: 20px;
+    -fx-font-family: -font-family;
+    -fx-cursor: HAND;
+}
+
+.addTransaction-button {
+    -fx-background-color: grey;
+    -fx-text-fill: -text-color;
+    -fx-font-size: 20px;
+    -fx-font-family: -font-family;
+    -fx-cursor: HAND;
+    -fx-background-radius: 0px;
+}
+
+.disconnection-button:hover {
+    -fx-background-color: #7272a4;
+}
+
+.text-user{
+    -fx-font-family: -font-family;
+    -fx-font-size: 20px;
+    -fx-fill: -text-color;
+
+}

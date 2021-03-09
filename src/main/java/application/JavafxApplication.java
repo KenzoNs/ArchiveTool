@@ -24,6 +24,7 @@ public class JavafxApplication extends Application {
 
     private ConfigurableApplicationContext applicationContext;
     private Parent root;
+    private StageManager sm = StageManager.getInstance();
 
     @Override
     public void init() throws IOException {
@@ -41,14 +42,15 @@ public class JavafxApplication extends Application {
 
     @Override
     public void start(Stage primaryStage){
-        StageManager.setStage(primaryStage);
-        StageManager.getStage().setScene(new Scene(this.root));
-        StageManager.configStage("Login Menu", false, false, true);
+
+        sm.setStage(primaryStage);
+        sm.getStage().setScene(new Scene(this.root));
+        sm.configStage("Login Menu", false, false, true);
     }
 
     @Override
     public void stop(){
-        System.out.println("stop");
+        System.out.println("Application close");
         this.applicationContext.close();
         Platform.exit();
     }

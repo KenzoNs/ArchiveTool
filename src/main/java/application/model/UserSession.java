@@ -1,24 +1,31 @@
 package application.model;
 
+import application.entity.User;
+import application.tool.StageManager;
+
 public class UserSession {
 
-    private static UserSession instance;
+    private static User user;
 
-    private User user;
-
-    private UserSession(User user) {
-        this.user = user;
+    private UserSession() {
     }
 
-    public static UserSession getInstance(User user) {
-        if(instance == null) {
-            instance = new UserSession(user);
-        }
-        return instance;
+    private static class UserSessionHolder
+    {
+        private final static UserSession instance = new UserSession();
+    }
+
+    public static UserSession getInstance()
+    {
+        return UserSession.UserSessionHolder.instance;
     }
 
     public User getUser() {
-        return this.user;
+        return user;
+    }
+
+    public void setUser(User target){
+        user = target;
     }
 
     public void cleanUserSession() {

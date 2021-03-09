@@ -6,21 +6,35 @@ public class StageManager {
 
     private static Stage stage;
 
-    public static void setStage(Stage oldStage){
-        stage = oldStage;
+    private StageManager(){
+
     }
 
-    public static Stage getStage(){
+    private static class StageManagerHolder
+    {
+        private final static StageManager instance = new StageManager();
+    }
+
+    public static StageManager getInstance()
+    {
+        return StageManagerHolder.instance;
+    }
+
+    public void setStage(Stage newStage){
+        stage = newStage;
+    }
+
+    public Stage getStage(){
         return stage;
     }
 
-    public static void switchStage(Stage newStage){
+    public void switchStage(Stage newStage){
         Stage oldStage = getStage();
         oldStage.close();
         setStage(newStage);
     }
 
-    public static void configStage(String title, boolean isResizable, boolean isMaximized, boolean isCenterOnScreen){
+    public void configStage(String title, boolean isResizable, boolean isMaximized, boolean isCenterOnScreen){
         stage.setResizable(isResizable);
         stage.setMaximized(isMaximized);
         stage.setTitle(title);

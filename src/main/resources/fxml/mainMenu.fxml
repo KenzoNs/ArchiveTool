@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="1080.0" prefWidth="1920.0" styleClass="background" stylesheets="@../css/mainMenu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ControlerLoginMenu">
+<BorderPane prefHeight="1080.0" prefWidth="1920.0" styleClass="background" stylesheets="@../css/mainMenu.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ControlerMainMenu">
     <bottom>
         <HBox alignment="CENTER" prefHeight="100.0" BorderPane.alignment="TOP_CENTER">
             <BorderPane.margin>
@@ -36,12 +37,12 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefWidth="1000.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-user" text="none">
+                  <Text fx:id="fullNameText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-user" text="none">
                      <HBox.margin>
                         <Insets right="20.0" />
                      </HBox.margin>
                   </Text>
-                  <Button alignment="CENTER" mnemonicParsing="false" styleClass="disconnection-button" text="Déconnexion" />
+                  <Button fx:id="disconnectButton" alignment="CENTER" mnemonicParsing="false" onAction="#disconnect" styleClass="disconnection-button" text="Déconnexion" />
                </children>
             </HBox>
          </children>

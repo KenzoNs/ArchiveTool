@@ -8,17 +8,17 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="1080.0" prefWidth="1920.0" styleClass="background" stylesheets="@../css/mainMenu.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ControlerMainMenu">
-    <bottom>
-        <HBox alignment="CENTER" prefHeight="100.0" BorderPane.alignment="TOP_CENTER">
-            <BorderPane.margin>
-                <Insets />
-            </BorderPane.margin>
+<BorderPane prefHeight="1080.0" prefWidth="1920.0" styleClass="background" stylesheets="@../css/mainMenu.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ControlerLoginMenu">
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="100.0" BorderPane.alignment="TOP_CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
          <children>
             <Button alignment="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" styleClass="addTransaction-button" text="Créer une transaction" textAlignment="CENTER" />
          </children>
-        </HBox>
-    </bottom>
+      </HBox>
+   </bottom>
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="1420.0" styleClass="bar" BorderPane.alignment="CENTER">
          <children>
@@ -42,7 +42,7 @@
                         <Insets right="20.0" />
                      </HBox.margin>
                   </Text>
-                  <Button fx:id="disconnectButton" alignment="CENTER" mnemonicParsing="false" onAction="#disconnect" styleClass="disconnection-button" text="Déconnexion" />
+                  <Button alignment="CENTER" mnemonicParsing="false" styleClass="disconnection-button" text="Déconnexion" />
                </children>
             </HBox>
          </children>

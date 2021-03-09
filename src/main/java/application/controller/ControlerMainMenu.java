@@ -1,9 +1,8 @@
 package application.controller;
 
-import application.model.UserSession;
-import application.tool.StageManager;
+import application.entity.User;
 import application.tool.SceneManager;
-import application.tool.Utils;
+import application.tool.StageManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,7 +15,7 @@ import java.util.ResourceBundle;
 
 public class ControlerMainMenu implements Initializable{
 
-    private UserSession us = UserSession.getInstance();
+    private StageManager sm = StageManager.getInstance();
 
     @FXML
     private Text fullNameText;
@@ -32,10 +31,8 @@ public class ControlerMainMenu implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if (us == null){
-            Utils.disconnect();
-        }
-        this.fullNameText.setText(us.getUser().getName() + " " + us.getUser().getFirstName());
+        User u = (User) sm.getStage().getUserData();
+        this.fullNameText.setText(u.getName() + " " + u.getFirstName());
     }
 
     @FXML
@@ -46,11 +43,5 @@ public class ControlerMainMenu implements Initializable{
 
         }
     }
-
-    @FXML
-    public void disconnect(ActionEvent event){
-        Utils.disconnect();
-    }
-
 
 }

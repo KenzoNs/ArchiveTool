@@ -1,11 +1,9 @@
 package application.controller;
 
 import application.entity.User;
-import application.model.UserSession;
 import application.service.UserService;
 import application.tool.StageManager;
 import application.tool.SceneManager;
-import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +13,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -65,7 +62,7 @@ public class ControlerLoginMenu implements Initializable{
             User user = userService.authentificed(login, password);
             if(user != null && user.getUserLogin().equals(login) && user.getPassword().equals(password)) {
                 try {
-                    UserSession.getInstance().setUser(user);
+                    sm.getStage().setUserData(user);
                     this.sm.switchStage(new Stage());
                     this.sm.getStage().setScene(SceneManager.createScene("mainMenu.fxml"));
                     this.sm.configStage("Main menu", true, true, true);

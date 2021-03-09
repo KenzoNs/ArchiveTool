@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - archivetool:/var/lib/postgresql/data
+    ports:
+      - 54321:5432
+  adminer:
+    image: adminer
+    depends_on:
+      - db
+    restart: always
+    ports:
+      - 8080:8080
+volumes:
+  archivetool:

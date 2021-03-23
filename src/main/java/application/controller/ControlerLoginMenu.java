@@ -1,7 +1,9 @@
 package application.controller;
 
+import application.entity.Client;
 import application.entity.User;
 import application.entity.Utilisateur;
+import application.service.ClientService;
 import application.service.UserService;
 import application.service.UtilisateurService;
 import application.tool.StageManager;
@@ -32,6 +34,10 @@ public class ControlerLoginMenu implements Initializable{
 
     @Autowired
     private UtilisateurService utilisateurService;
+
+    //to delete
+    @Autowired
+    private ClientService clientService;
 
     @FXML
     private Text connexionError;
@@ -69,6 +75,12 @@ public class ControlerLoginMenu implements Initializable{
             System.out.println("password hashé = " + password);
             Utilisateur utilisateur = utilisateurService.authentificed(login, password);
             System.out.println("user = " + utilisateur);
+
+            //start of tests to delete
+
+
+
+            //end of tests to delete
             if(utilisateur != null) {
                 try {
                     sm.getStage().setUserData(utilisateur);

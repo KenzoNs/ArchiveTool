@@ -72,6 +72,7 @@ public class ControlerLoginMenu implements Initializable{
         if(!login.equals("") && !password.equals("")){
             System.out.println(utilisateurService);
             password = getSha256(password);
+            System.out.println("test");
             System.out.println("password hashé = " + password);
             Utilisateur utilisateur = utilisateurService.authentificed(login, password);
             System.out.println("user = " + utilisateur);

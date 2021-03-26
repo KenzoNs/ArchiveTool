@@ -1,10 +1,9 @@
 package application.controller;
 
-import application.entity.Client;
-import application.entity.User;
+import application.entity.Produit;
 import application.entity.Utilisateur;
 import application.service.ClientService;
-import application.service.UserService;
+import application.service.ProduitService;
 import application.service.UtilisateurService;
 import application.tool.StageManager;
 import application.tool.SceneManager;
@@ -17,7 +16,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import net.bytebuddy.implementation.bind.MethodDelegationBinder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -38,6 +36,9 @@ public class ControlerLoginMenu implements Initializable{
     //to delete
     @Autowired
     private ClientService clientService;
+
+    @Autowired
+    private ProduitService produitService;
 
     @FXML
     private Text connexionError;
@@ -78,7 +79,8 @@ public class ControlerLoginMenu implements Initializable{
 
             //start of tests to delete
 
-
+            Produit p = produitService.findProduitByIdentifiant_produit(1);
+            System.out.println(p.toString());
 
             //end of tests to delete
             if(utilisateur != null) {

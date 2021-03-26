@@ -1,6 +1,5 @@
 package application.controller;
 
-import application.entity.User;
 import application.tool.SceneManager;
 import application.tool.StageManager;
 import javafx.event.ActionEvent;
@@ -31,8 +30,8 @@ public class ControlerMainMenu implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        User u = (User) sm.getStage().getUserData();
-        this.fullNameText.setText(u.getName() + " " + u.getFirstName());
+       // User u = (User) sm.getStage().getUserData();
+        //this.fullNameText.setText(u.getName() + " " + u.getFirstName());
     }
 
     @FXML

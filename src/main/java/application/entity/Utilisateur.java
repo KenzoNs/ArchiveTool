@@ -1,7 +1,5 @@
 package application.entity;
 
-import application.model.RelationshipId;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;

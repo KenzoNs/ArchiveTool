@@ -1,16 +1,16 @@
 package application.controller;
 
-import application.entity.Produit;
 import application.entity.Utilisateur;
-import application.service.ClientService;
-import application.service.ProduitService;
+import application.model.UtilisateurSession;
 import application.service.UtilisateurService;
-import application.tool.StageManager;
-import application.tool.SceneManager;
+import application.tool.Utils;
+import application.view.FxmlView;
+import application.view.StageManager;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -19,26 +19,19 @@ import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-
 import java.io.IOException;
 import java.net.URL;
-import java.security.MessageDigest;
 import java.util.ResourceBundle;
 
 @Controller
 public class ControlerLoginMenu implements Initializable{
 
-    StageManager sm = StageManager.getInstance();
+    private StageManager sm = StageManager.getInstance();
 
     @Autowired
     private UtilisateurService utilisateurService;
 
-    //to delete
-    @Autowired
-    private ClientService clientService;
-
-    @Autowired
-    private ProduitService produitService;
+    private UtilisateurSession us = UtilisateurSession.getInstance();
 
     @FXML
     private Text connexionError;
@@ -65,33 +58,19 @@ public class ControlerLoginMenu implements Initializable{
     }
 
     @FXML
-    public void displayMainMenu(ActionEvent event){
+    public void displayMainMenu(ActionEvent event) throws IOException {
 
         String login = this.loginField.getText();
         String password = this.passwordField.getText();
 
         if(!login.equals("") && !password.equals("")){
-            System.out.println(utilisateurService);
-            password = getSha256(password);
-            System.out.println("test");
-            System.out.println("password hashé = " + password);
+            password = Utils.getSha256(password);
             Utilisateur utilisateur = utilisateurService.authentificed(login, password);
-            System.out.println("user = " + utilisateur);
 
-            //start of tests to delete
-
-            Produit p = produitService.findProduitByIdentifiant_produit(1);
-            System.out.println(p.toString());
-
-            //end of tests to delete
             if(utilisateur != null) {
-                try {
-                    sm.getStage().setUserData(utilisateur);
-                    this.sm.switchStage(new Stage());
-                    this.sm.getStage().setScene(SceneManager.createScene("mainMenu.fxml"));
-                    this.sm.configStage("Main menu", true, true, true);
-                } catch (IOException e) {
-                }
+                us.setUtilisateur(utilisateur);
+                System.out.println(us.getUtilisateur().toString());
+                this.sm.createStage(FxmlView.MAIN_MENU, true, true, true);
             }
             else{
                 this.passwordField.clear();
@@ -108,18 +87,5 @@ public class ControlerLoginMenu implements Initializable{
         }
     }
 
-    public static String getSha256(String value) {
-        try{
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            md.update(value.getBytes());
-            return bytesToHex(md.digest());
-        } catch(Exception ex){
-            throw new RuntimeException(ex);
-        }
-    }
-    private static String bytesToHex(byte[] bytes) {
-        StringBuffer result = new StringBuffer();
-        for (byte b : bytes) result.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
-        return result.toString();
-    }
+
 }

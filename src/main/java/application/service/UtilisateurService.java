@@ -12,7 +12,7 @@ public class UtilisateurService {
     private UtilisateurRepository utilisateurRepository;
 
     public Utilisateur authentificed(String login, String password){
-        return utilisateurRepository.findUtilisateurByLoginAndPassword(login, password);
+        return utilisateurRepository.findUserByUserLoginAndPassword(login, password);
     }
 
 }

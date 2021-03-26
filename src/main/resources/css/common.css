@@ -1,48 +1,96 @@
 
 /*
 
-Petite marge: 5px
-Marge intermédiaire: 20px
-Grande marge: 50px
-Famille de police: Calibri
-background: #44475a
-foreground: #282a36
-Blanc: #f8f8f2
-Rouge: #ff5555
-Orange: #ffb86c
-Vert: #50fa7b
-Bleu: #6272a4
+Small margin: 5px
+Medium margin: 20px
+Big margin: 50px
 
  */
 
+
+
+/* ------------------[  Variables  ]------------------ */
 *{
     -background-color: #313131;
     -foreground-color: #525252;
     -text-color: #FFF5EE;
-    -button-color: #525252;
+    -grey-color: grey;
+    -grey-hover-color: darkgrey;
+    -blue-color: #6272a4;
+    -blue-hover-color: #7272a4;
+    -green-color: #50fa7b;
     -red-color: #ff5555;
     -font-family: Calibri;
 
 }
+/* --------------------------------------------------- */
 
+
+
+
+/* --------------------[  Body  ]--------------------- */
 .background {
     -fx-background-color: -background-color;
     -fx-padding: 20px 20px 20px 20px;
 }
 
+.foreground{
+    -fx-background-color: -foreground-color;
+}
+
+.vbox-foreground{
+    -fx-padding: 20px 20px 20px 20px;
+}
+/* --------------------------------------------------- */
+
+
+
+
+/* --------------------[ Buttons ]-------------------- */
 .button {
     -fx-background-radius: 0px;
     -fx-background-color: grey;
-    -fx-text-fill: #FAEBD7;
+    -fx-text-fill: -text-color;
     -fx-font-size: 20px;
     -fx-font-family: -font-family;
     -fx-cursor: HAND;
 }
 
 .button:hover {
-    -fx-background-color: darkgrey;
+    -fx-background-color: -grey-hover-color;
 }
 
+.search-button {
+    -fx-background-color: -grey-color;
+    -fx-text-fill: -text-color;
+    -fx-font-size: 20px;
+    -fx-font-family: -font-family;
+    -fx-cursor: HAND;
+    -fx-background-radius: 0px 5px 5px 0px;
+}
+
+.search-button:hover {
+    -fx-background-color: -grey-hover-color;
+}
+
+.disconnection-button {
+    -fx-background-radius: 0px;
+    -fx-background-color: -blue-color;
+    -fx-text-fill: -text-color;
+    -fx-font-size: 20px;
+    -fx-font-family: -font-family;
+    -fx-cursor: HAND;
+}
+
+.disconnection-button:hover {
+    -fx-background-color: -blue-hover-color;
+}
+/* --------------------------------------------------- */
+
+
+
+
+/* ---------------------[ Other ]--------------------- */
 .field {
     -fx-background-radius: 0px;
     -fx-background-color: -text-color;
@@ -50,7 +98,20 @@ Bleu: #6272a4
 }
 
 .title {
-    -fx-text-fill: #f8f8f2;
+    -fx-fill: -text-color;
     -fx-font-size: 25px;
-    -fx-padding: 0 0 5px 0;
 }
+
+.label{
+    -fx-font-size: 25px;
+    -fx-font-family: -font-family;
+    -fx-text-fill: -text-color;
+}
+
+.choice-box{
+    -fx-text-fill: grey;
+    -fx-background-color: -text-color;
+    -fx-background-radius: 0px;
+
+}
+/* --------------------------------------------------- */

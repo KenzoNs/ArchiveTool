@@ -15,7 +15,7 @@ public class Client implements Serializable {
     @Column(name="nom_client")
     private String nom_client;
 
-    @Column(name="num_tel_client ")
+    @Column(name="num_tel_client")
     private String num_tel_client;
 
     @Column(name="adresse_client")

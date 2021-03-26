@@ -28,6 +28,9 @@ public class ControlerMainMenu implements Initializable{
     private UtilisateurService utilisateurService;
 
     @FXML
+    private Button home;
+
+    @FXML
     private Button fullNameText;
 
     @FXML
@@ -53,9 +56,26 @@ public class ControlerMainMenu implements Initializable{
         this.fullNameText.setText(us.getUtilisateur().getNom_utilisateur() + " " + us.getUtilisateur().getPrenom_utilisateur());
     }
 
+
+    @FXML
+    public void displayMainMenu(ActionEvent event) throws IOException {
+        this.sm.switchScene(event, FxmlView.MAIN_MENU);
+    }
+
+
     @FXML
     public void displayAddTransactionMenu(ActionEvent event) throws IOException {
         this.sm.switchScene(event, FxmlView.ADD_TRANSACTION_MENU);
+    }
+
+    @FXML
+    public void displayAddClientMenu(ActionEvent event) throws IOException {
+        this.sm.switchScene(event, FxmlView.ADD_CLIENT_MENU);
+    }
+
+    @FXML
+    public void displayAddItemMenu(ActionEvent event) throws IOException {
+        this.sm.switchScene(event, FxmlView.ADD_ITEM_MENU);
     }
 
     @FXML

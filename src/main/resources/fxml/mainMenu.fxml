@@ -16,13 +16,13 @@
             <Insets />
          </BorderPane.margin>
          <children>
-            <Button fx:id="addClient" alignment="CENTER" mnemonicParsing="false" prefHeight="136.0" prefWidth="250.0" styleClass="addTransaction-button" text="Ajouter un client" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="addClient" alignment="CENTER" mnemonicParsing="false" onAction="#displayAddClientMenu" prefHeight="136.0" prefWidth="250.0" styleClass="addTransaction-button" text="Ajouter un client" textAlignment="CENTER" wrapText="true" />
             <Button fx:id="addTransaction" alignment="CENTER" mnemonicParsing="false" onAction="#displayAddTransactionMenu" prefHeight="136.0" prefWidth="250.0" styleClass="addTransaction-button" text="Créer une nouvelle transaction" textAlignment="CENTER" wrapText="true">
                <HBox.margin>
                   <Insets left="100.0" right="100.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="addItem" alignment="CENTER" mnemonicParsing="false" prefHeight="136.0" prefWidth="250.0" styleClass="addTransaction-button" text="Ajouter un produit" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="addItem" alignment="CENTER" mnemonicParsing="false" onAction="#displayAddItemMenu" prefHeight="136.0" prefWidth="250.0" styleClass="addTransaction-button" text="Ajouter un produit" textAlignment="CENTER" wrapText="true" />
          </children>
       </HBox>
    </bottom>
@@ -34,7 +34,7 @@
                   <Insets />
                </HBox.margin>
                <children>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" styleClass="profil-button">
+                  <Button fx:id="home" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#displayMainMenu" prefHeight="60.0" prefWidth="60.0" styleClass="profil-button">
                      <graphic>
                         <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -46,7 +46,7 @@
                         <Insets right="20.0" />
                      </HBox.margin>
                   </Button>
-                  <TextField maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="350.0" promptText="Rechercher une transaction" styleClass="field">
+                  <TextField prefHeight="60.0" prefWidth="350.0" promptText="Rechercher une transaction" styleClass="field">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>

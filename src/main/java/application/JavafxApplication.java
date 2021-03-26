@@ -31,7 +31,6 @@ public class JavafxApplication extends Application {
         sm.setApplicationContexte(this.applicationContext);
         sm.setFxmlView(FxmlView.LOGIN_MENU);
         this.root = sm.load();
-
     }
 
     @Override

@@ -1,16 +1,12 @@
 package application.entity;
 
-import application.model.RelationshipId;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-//@IdClass(RelationshipId.class)
 @Table(name = "utilisateur", schema = "public")
 public class Utilisateur implements Serializable{
-
 
     @Id
     @Column(name="identifiant_utilisateur")
@@ -50,21 +46,6 @@ public class Utilisateur implements Serializable{
         this.mot_de_passe_utilisateur = mot_de_passe_utilisateur;
         this.date_inscription = date_inscription;
         this.privilege_utilisateur = privilege_utilisateur;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Utilisateur{" +
-                "identifiant_utilisateur='" + identifiant_utilisateur + '\'' +
-                ", sexe_utilisateur='" + sexe_utilisateur + '\'' +
-                ", mail_utilisateur='" + mail_utilisateur + '\'' +
-                ", nom_utilisateur='" + nom_utilisateur + '\'' +
-                ", prenom_utilisateur='" + prenom_utilisateur + '\'' +
-                ", mot_de_passe_utilisateur='" + mot_de_passe_utilisateur + '\'' +
-                ", date_inscription=" + date_inscription +
-                ", privilege_utilisateur=" + privilege_utilisateur +
-                '}';
     }
 
     public String getIdentifiant_utilisateur() {
@@ -129,5 +110,11 @@ public class Utilisateur implements Serializable{
 
     public void setPrivilege_utilisateur(int privilege_utilisateur) {
         this.privilege_utilisateur = privilege_utilisateur;
+    }
+
+    @Override
+    public String toString() {
+        return "User: \n\tuserLogin= " + this.identifiant_utilisateur + "\n\temailAdress= " + this.mail_utilisateur + "\n\tname= " + this.nom_utilisateur + "\n\tfirstName= " + this.prenom_utilisateur +
+                "\n\tpassword= " + this.mot_de_passe_utilisateur + "\n\tregistrationDate= " + this.date_inscription + "\n\tgender= " + this.sexe_utilisateur + "\n\tpower= " + this.privilege_utilisateur;
     }
 }

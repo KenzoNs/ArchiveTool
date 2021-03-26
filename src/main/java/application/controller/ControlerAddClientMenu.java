@@ -13,7 +13,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 @Controller
-public class ControlerAddTransactionMenu implements Initializable {
+public class ControlerAddClientMenu implements Initializable {
 
     @FXML
     private Button home;
@@ -31,3 +31,5 @@ public class ControlerAddTransactionMenu implements Initializable {
     }
 
 }
+
+

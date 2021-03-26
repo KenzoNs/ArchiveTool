@@ -36,8 +36,31 @@ public enum FxmlView {
         public String getFxmlFile() {
             return "addTransactionMenu.fxml";
         }
-    };
+    },
 
+    ADD_CLIENT_MENU {
+        @Override
+        public String getTitle() {
+            return "Ajouter un client";
+        }
+
+        @Override
+        public String getFxmlFile() {
+            return "addClientMenu.fxml";
+        }
+    },
+
+    ADD_ITEM_MENU {
+        @Override
+        public String getTitle() {
+            return "Ajouter un Produit";
+        }
+
+        @Override
+        public String getFxmlFile() {
+            return "addProduitMenu.fxml";
+        }
+    };
 
 
     public abstract String getTitle();

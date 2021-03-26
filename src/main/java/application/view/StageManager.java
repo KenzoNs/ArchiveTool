@@ -86,7 +86,6 @@ public class StageManager {
     public Parent load() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setControllerFactory(applicationContext::getBean);
-        System.out.println("/fxml/" + fxmlView.getFxmlFile());
         loader.setLocation(StageManager.class.getResource("/fxml/" + fxmlView.getFxmlFile()));
         return loader.load();
     }

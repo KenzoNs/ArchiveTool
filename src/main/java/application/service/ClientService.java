@@ -11,7 +11,7 @@ public class ClientService {
     @Autowired
     private ClientRepository clientRepository;
 
-    public Client findById(int id){
+    public Client findClientById(int id){
         return clientRepository.findClientByIdentifiant_client(id);
     }
 }

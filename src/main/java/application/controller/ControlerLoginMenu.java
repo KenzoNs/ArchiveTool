@@ -19,7 +19,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -76,10 +75,10 @@ public class ControlerLoginMenu implements Initializable{
         String password = this.passwordField.getText();
 
         //start of tests to delete
-        Produit p = produitService.findProduitByIdentifiant_produit(1);
+        Produit p = produitService.findProduitByIdentifiantProduit(1);
         System.out.println(p);
 
-        Client c = clientService.findById(1);
+        Client c = clientService.findClientById(1);
         System.out.println(c);
 
         //end of tests to delete

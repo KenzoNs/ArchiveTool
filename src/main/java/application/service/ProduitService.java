@@ -11,7 +11,7 @@ public class ProduitService {
     @Autowired
     private ProduitRepository produitRepository;
 
-    public Produit findProduitByIdentifiant_produit(int id){
+    public Produit findProduitByIdentifiantProduit(int id){
         return produitRepository.findProduitByIdentifiant_produit(id);
     }
 }

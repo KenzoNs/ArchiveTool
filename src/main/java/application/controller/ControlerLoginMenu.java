@@ -1,7 +1,11 @@
 package application.controller;
 
+import application.entity.Client;
+import application.entity.Produit;
 import application.entity.Utilisateur;
 import application.model.UtilisateurSession;
+import application.service.ClientService;
+import application.service.ProduitService;
 import application.service.UtilisateurService;
 import application.tool.Utils;
 import application.view.FxmlView;
@@ -30,6 +34,14 @@ public class ControlerLoginMenu implements Initializable{
 
     @Autowired
     private UtilisateurService utilisateurService;
+
+    //to delete
+    @Autowired
+    private ProduitService produitService;
+
+    //to delete
+    @Autowired
+    private ClientService clientService;
 
     private UtilisateurSession us = UtilisateurSession.getInstance();
 
@@ -62,6 +74,15 @@ public class ControlerLoginMenu implements Initializable{
 
         String login = this.loginField.getText();
         String password = this.passwordField.getText();
+
+        //start of tests to delete
+        Produit p = produitService.findProduitByIdentifiant_produit(1);
+        System.out.println(p);
+
+        Client c = clientService.findById(1);
+        System.out.println(c);
+
+        //end of tests to delete
 
         if(!login.equals("") && !password.equals("")){
             password = Utils.getSha256(password);

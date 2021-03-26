@@ -93,6 +93,7 @@ public class StageManager {
     public void switchScene(ActionEvent e, FxmlView target) throws IOException {
         fxmlView = target;
         Scene scene = ((Node) e.getSource()).getScene();
+        stage.setTitle(fxmlView.getTitle());
         scene.setRoot(this.load());
     }
 

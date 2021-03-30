@@ -21,6 +21,16 @@ public class Client implements Serializable {
     @Column(name="adresse_client")
     private String adresse_client;
 
+    public Client(){
+
+    }
+
+    public Client(String nom_client, String num_tel_client, String adresse_client){
+        this.nom_client = nom_client;
+        this.num_tel_client = num_tel_client;
+        this.adresse_client = adresse_client;
+    }
+
     public int getIdentifiant_client() {
         return identifiant_client;
     }

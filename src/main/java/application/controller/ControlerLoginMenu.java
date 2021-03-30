@@ -2,10 +2,12 @@ package application.controller;
 
 import application.entity.Client;
 import application.entity.Produit;
+import application.entity.Transaction;
 import application.entity.Utilisateur;
 import application.model.UtilisateurSession;
 import application.service.ClientService;
 import application.service.ProduitService;
+import application.service.TransactionService;
 import application.service.UtilisateurService;
 import application.tool.Utils;
 import application.view.FxmlView;
@@ -43,6 +45,10 @@ public class ControlerLoginMenu implements Initializable{
     @Autowired
     private ClientService clientService;
 
+    //toDelete
+    @Autowired
+    private TransactionService transactionService;
+
     private UtilisateurSession us = UtilisateurSession.getInstance();
 
     @FXML
@@ -75,15 +81,6 @@ public class ControlerLoginMenu implements Initializable{
         String login = this.loginField.getText();
         String password = this.passwordField.getText();
 
-        //start of tests to delete
-        Produit p = produitService.findProduitByIdentifiantProduit(1);
-        System.out.println(p);
-
-        Client c = clientService.findClientById(1);
-        System.out.println(c);
-
-        //end of tests to delete
-
         if(!login.equals("") && !password.equals("")){
             password = Utils.getSha256(password);
             Utilisateur utilisateur = utilisateurService.authentificed(login, password);
@@ -91,6 +88,14 @@ public class ControlerLoginMenu implements Initializable{
             if(utilisateur != null) {
                 us.setUtilisateur(utilisateur);
                 System.out.println(us.getUtilisateur().toString());
+
+                //start of tests to delete
+
+                Transaction t = transactionService.findTransactionByIdentifiantTransaction(1);
+                System.out.println(t);
+
+                //end of tests to delete
+
                 this.sm.createStage(FxmlView.MAIN_MENU, true, true, true);
             }
             else{

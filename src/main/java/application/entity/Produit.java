@@ -20,6 +20,15 @@ public class Produit implements Serializable {
     @Column(name="prix_unitaire_produit")
     private float prix_unitaire_produit;
 
+    public Produit(){
+
+    }
+
+    public Produit(String nom_produit, float prix_unitaire_produit){
+        this.nom_produit = nom_produit;
+        this.prix_unitaire_produit = prix_unitaire_produit;
+    }
+
     public int getIdentifiant_produit() {
         return identifiant_produit;
     }

@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import org.springframework.stereotype.Controller;
 
@@ -24,6 +25,11 @@ public class ControlerAddProduitMenu implements Initializable {
     private StageManager sm = StageManager.getInstance();
 
     @FXML
+    private Button validateButton;
+
+    @FXML
+    private Button cancelButton;
+    @FXML
     private Button home;
 
     @FXML
@@ -34,6 +40,15 @@ public class ControlerAddProduitMenu implements Initializable {
 
     @FXML
     private Button disconnectButton;
+
+    @FXML
+    private TextField productNameTextField;
+
+    @FXML
+    private TextField priceTextField;
+
+    @FXML
+    private Text errorText;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -48,6 +63,25 @@ public class ControlerAddProduitMenu implements Initializable {
         this.sm.switchScene(event, FxmlView.MAIN_MENU);
     }
 
+    @FXML
+    void submit(ActionEvent event) {
+        if (this.priceTextField.getText().equals("") || this.productNameTextField.getText().equals("")){
+            this.errorText.setText("Tout les champs ne sont pas remplis");
+            this.errorText.setVisible(true);
+        }
+        else{
+            String price = this.priceTextField.getText();
+            String productName = this.productNameTextField.getText();
+            
+
+            try{
+                sm.switchScene(event, FxmlView.MAIN_MENU);
+            }catch(IOException e){
+                e.getMessage();
+            }
+        }
+
+    }
 
     @FXML
     public void disconnect(ActionEvent event) {

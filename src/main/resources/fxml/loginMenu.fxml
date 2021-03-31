@@ -77,7 +77,7 @@
                            <children>
                               <VBox prefWidth="275.0">
                                  <children>
-                                    <Text fx:id="connexionError" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error-text" text="Text" visible="false" />
+                                    <Text fx:id="connexionError" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error-text" text="None" visible="false" />
                                  </children>
                               </VBox>
                            </children>

@@ -18,7 +18,7 @@
          <bottom>
             <HBox alignment="CENTER" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="validateButton" mnemonicParsing="false" onAction="#submit" prefHeight="100.0" prefWidth="200.0" textAlignment="CENTER" wrapText="true">
                      <HBox.margin>
                         <Insets right="350.0" />
                      </HBox.margin>
@@ -35,7 +35,7 @@
                         </HBox>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="cancelButton" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" textAlignment="CENTER" wrapText="true">
                      <graphic>
                         <HBox alignment="CENTER_LEFT" prefHeight="82.0" prefWidth="154.0">
                            <children>
@@ -114,7 +114,7 @@
             </BorderPane>
          </top>
          <center>
-            <BorderPane prefHeight="500.0" styleClass="foreground" BorderPane.alignment="CENTER">
+            <BorderPane prefHeight="500.0" prefWidth="1125.0" styleClass="foreground" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets bottom="20.0" top="20.0" />
                </BorderPane.margin>
@@ -138,7 +138,7 @@
                                     <Insets right="100.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField promptText="Entrer le nom du produit" styleClass="field" />
+                              <TextField fx:id="productNameTextField" promptText="Entrer le nom du produit" styleClass="field" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -148,9 +148,10 @@
                                     <Insets right="100.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField promptText="Entrer le prix unitaire du produit" styleClass="field" />
+                              <TextField fx:id="priceTextField" promptText="Entrer le prix unitaire du produit" styleClass="field" />
                            </children>
                         </HBox>
+                        <Text fx:id="errorText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error-text" text="None" visible="false" />
                      </children>
                   </VBox>
                </center>

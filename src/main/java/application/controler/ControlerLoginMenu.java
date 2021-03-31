@@ -1,5 +1,6 @@
 package application.controler;
 
+import application.entity.Client;
 import application.entity.Utilisateur;
 import application.model.UtilisateurSession;
 import application.service.ClientService;
@@ -76,6 +77,13 @@ public class ControlerLoginMenu implements Initializable{
         if(!login.equals("") && !password.equals("")){
             password = Utils.getSha256(password);
             Utilisateur utilisateur = utilisateurService.authentificed(login, password);
+
+            //start of tests to delete
+
+            Client c = clientService.findClientById(4);
+            System.out.println(c);
+
+            //end of tests to delete
 
             if(utilisateur != null) {
                 us.setUtilisateur(utilisateur);

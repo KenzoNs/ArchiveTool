@@ -15,4 +15,8 @@ public class ClientService {
         return clientRepository.findClientByIdentifiant_client(id);
     }
 
+    public void addOrUpdateClient(Client c){
+        clientRepository.save(c);
+    }
+
 }

@@ -14,4 +14,8 @@ public class ProduitService {
     public Produit findProduitByIdentifiantProduit(int id){
         return produitRepository.findProduitByIdentifiant_produit(id);
     }
+
+    public void addOrUpdateProduct(Produit p){
+        this.produitRepository.save(p);
+    }
 }

@@ -1,14 +1,17 @@
-package application.controller;
+package application.controler;
 
-import application.entity.Utilisateur;
+import application.exception.AlreadyDisconnectException;
 import application.model.UtilisateurSession;
 import application.service.UtilisateurService;
+import application.tool.Utils;
 import application.view.FxmlView;
 import application.view.StageManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,10 +31,16 @@ public class ControlerMainMenu implements Initializable{
     private UtilisateurService utilisateurService;
 
     @FXML
+    private HBox hbox;
+
+    @FXML
     private Button home;
 
     @FXML
-    private Button fullNameText;
+    private Text fullNameText;
+
+    @FXML
+    private ImageView genre;
 
     @FXML
     private Button addTransaction;
@@ -48,20 +57,26 @@ public class ControlerMainMenu implements Initializable{
     @FXML
     private Button searchButton;
 
+    @FXML
+    private Button adminPanelButton;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if (us == null){
-
+        if (Utils.isConnected()){
+            Utils.updateButton(adminPanelButton);
+            Utils.updateButton(addClient);
+            Utils.updateButton(addItem);
+            Utils.updateButton(addTransaction);
         }
         this.fullNameText.setText(us.getUtilisateur().getNom_utilisateur() + " " + us.getUtilisateur().getPrenom_utilisateur());
-    }
 
+
+    }
 
     @FXML
     public void displayMainMenu(ActionEvent event) throws IOException {
         this.sm.switchScene(event, FxmlView.MAIN_MENU);
     }
-
 
     @FXML
     public void displayAddTransactionMenu(ActionEvent event) throws IOException {
@@ -79,9 +94,11 @@ public class ControlerMainMenu implements Initializable{
     }
 
     @FXML
-    public void disconnect(ActionEvent event){
-        System.out.println("deco");
+    public void disconnect(ActionEvent event) {
+        try{
+            Utils.disconnect();
+        }catch (AlreadyDisconnectException e){
+            e.getCause();
+        }
     }
-
-
 }

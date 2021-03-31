@@ -1,5 +1,6 @@
 package application.view;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -33,6 +34,10 @@ public class StageManager {
 
     public void setApplicationContexte(ApplicationContext ac){
         applicationContext = ac;
+    }
+
+    public void quit(){
+        Platform.exit();
     }
 
     //----------------------------------- Stage -----------------------------------------------------//

@@ -1,13 +1,9 @@
-package application.controller;
+package application.controler;
 
-import application.entity.Client;
-import application.entity.Produit;
-import application.entity.Transaction;
 import application.entity.Utilisateur;
 import application.model.UtilisateurSession;
 import application.service.ClientService;
 import application.service.ProduitService;
-import application.service.TransactionService;
 import application.service.UtilisateurService;
 import application.tool.Utils;
 import application.view.FxmlView;
@@ -21,7 +17,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -44,10 +39,6 @@ public class ControlerLoginMenu implements Initializable{
     //to delete
     @Autowired
     private ClientService clientService;
-
-    //toDelete
-    @Autowired
-    private TransactionService transactionService;
 
     private UtilisateurSession us = UtilisateurSession.getInstance();
 
@@ -81,34 +72,25 @@ public class ControlerLoginMenu implements Initializable{
         String login = this.loginField.getText();
         String password = this.passwordField.getText();
 
+
         if(!login.equals("") && !password.equals("")){
             password = Utils.getSha256(password);
             Utilisateur utilisateur = utilisateurService.authentificed(login, password);
 
             if(utilisateur != null) {
                 us.setUtilisateur(utilisateur);
-                System.out.println(us.getUtilisateur().toString());
-
-                //start of tests to delete
-
-                Transaction t = transactionService.findTransactionByIdentifiantTransaction(1);
-                System.out.println(t);
-
-                //end of tests to delete
-
                 this.sm.createStage(FxmlView.MAIN_MENU, true, true, true);
             }
             else{
                 this.passwordField.clear();
+                connexionError.setText("Identifiant ou mot de passe incorrect");
                 connexionError.setVisible(true);
             }
         }
         else{
-            if(login.equals("")){
-                this.loginField.setStyle("-fx-border-color: -red-color");
-            }
-            if(password.equals("")){
-                this.passwordField.setStyle("-fx-border-color: -red-color");
+            if(login.equals("") || password.equals("")){
+                connexionError.setText("Tout les champs ne sont pas remplis");
+                connexionError.setVisible(true);
             }
         }
     }

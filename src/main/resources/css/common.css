@@ -7,8 +7,6 @@ Big margin: 50px
 
  */
 
-
-
 /* ------------------[  Variables  ]------------------ */
 *{
     -background-color: #313131;
@@ -31,11 +29,13 @@ Big margin: 50px
 /* --------------------[  Body  ]--------------------- */
 .background {
     -fx-background-color: -background-color;
-    -fx-padding: 20px 20px 20px 20px;
+    -fx-padding: 20px 130px 20px 130px;
+
 }
 
 .foreground{
     -fx-background-color: -foreground-color;
+
 }
 
 .vbox-foreground{
@@ -51,7 +51,7 @@ Big margin: 50px
     -fx-background-radius: 0px;
     -fx-background-color: grey;
     -fx-text-fill: -text-color;
-    -fx-font-size: 20px;
+    -fx-font-size: 17px;
     -fx-font-family: -font-family;
     -fx-cursor: HAND;
 }
@@ -63,7 +63,7 @@ Big margin: 50px
 .search-button {
     -fx-background-color: -grey-color;
     -fx-text-fill: -text-color;
-    -fx-font-size: 20px;
+    -fx-font-size: 17px;
     -fx-font-family: -font-family;
     -fx-cursor: HAND;
     -fx-background-radius: 0px 5px 5px 0px;
@@ -77,7 +77,7 @@ Big margin: 50px
     -fx-background-radius: 0px;
     -fx-background-color: -blue-color;
     -fx-text-fill: -text-color;
-    -fx-font-size: 20px;
+    -fx-font-size: 17px;
     -fx-font-family: -font-family;
     -fx-cursor: HAND;
 }
@@ -94,7 +94,15 @@ Big margin: 50px
 .field {
     -fx-background-radius: 0px;
     -fx-background-color: -text-color;
-    -fx-font-size: 20px;
+    -fx-font-size: 17px;
+    -fx-pref-width: 275px;
+}
+
+.small-field {
+    -fx-background-radius: 0px;
+    -fx-background-color: -text-color;
+    -fx-font-size: 17px;
+    -fx-pref-width: 75px;
 }
 
 .title {
@@ -103,15 +111,27 @@ Big margin: 50px
 }
 
 .label{
-    -fx-font-size: 25px;
-    -fx-font-family: -font-family;
     -fx-text-fill: -text-color;
+    -fx-font-size: 17px;
+    -fx-font-family: -font-family;
+    -fx-pref-width: 150px;
 }
 
 .choice-box{
     -fx-text-fill: grey;
     -fx-background-color: -text-color;
     -fx-background-radius: 0px;
-
+    -fx-pref-width: 275px;
 }
+
+.text{
+    -fx-fill: -text-color;
+    -fx-font-family: -font-family;
+}
+
+.error-text{
+    -fx-fill: -red-color;
+    -fx-font-family: -font-family;
+}
+
 /* --------------------------------------------------- */

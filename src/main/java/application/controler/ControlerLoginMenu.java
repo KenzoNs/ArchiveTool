@@ -1,7 +1,5 @@
-package application.controller;
+package application.controler;
 
-import application.entity.Client;
-import application.entity.Produit;
 import application.entity.Utilisateur;
 import application.model.UtilisateurSession;
 import application.service.ClientService;
@@ -19,7 +17,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -75,14 +72,6 @@ public class ControlerLoginMenu implements Initializable{
         String login = this.loginField.getText();
         String password = this.passwordField.getText();
 
-        //start of tests to delete
-        Produit p = produitService.findProduitByIdentifiantProduit(1);
-        System.out.println(p);
-
-        Client c = clientService.findClientById(1);
-        System.out.println(c);
-
-        //end of tests to delete
 
         if(!login.equals("") && !password.equals("")){
             password = Utils.getSha256(password);
@@ -90,20 +79,18 @@ public class ControlerLoginMenu implements Initializable{
 
             if(utilisateur != null) {
                 us.setUtilisateur(utilisateur);
-                System.out.println(us.getUtilisateur().toString());
                 this.sm.createStage(FxmlView.MAIN_MENU, true, true, true);
             }
             else{
                 this.passwordField.clear();
+                connexionError.setText("Identifiant ou mot de passe incorrect");
                 connexionError.setVisible(true);
             }
         }
         else{
-            if(login.equals("")){
-                this.loginField.setStyle("-fx-border-color: -red-color");
-            }
-            if(password.equals("")){
-                this.passwordField.setStyle("-fx-border-color: -red-color");
+            if(login.equals("") || password.equals("")){
+                connexionError.setText("Tout les champs ne sont pas remplis");
+                connexionError.setVisible(true);
             }
         }
     }

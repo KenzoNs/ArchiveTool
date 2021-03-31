@@ -1,4 +1,4 @@
-package application.controller;
+package application.controler;
 
 public class ControlerAddUser {
 }

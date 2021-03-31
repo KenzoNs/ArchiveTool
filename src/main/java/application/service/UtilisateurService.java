@@ -5,6 +5,8 @@ import application.repository.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UtilisateurService {
 
@@ -13,6 +15,10 @@ public class UtilisateurService {
 
     public Utilisateur authentificed(String login, String password){
         return utilisateurRepository.findUserByUserLoginAndPassword(login, password);
+    }
+
+    public List<Utilisateur> getAllUsers(){
+        return this.utilisateurRepository.findAll();
     }
 
 }

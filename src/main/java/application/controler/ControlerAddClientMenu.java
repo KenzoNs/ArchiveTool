@@ -87,12 +87,12 @@ public class ControlerAddClientMenu implements Initializable {
 
     @FXML
     public void addClient(ActionEvent event){
-        String addr = clientAddr.getText();
-        String name = clientName.getText();
-        String phoneNumber = clientPhoneNumber.getText();
+        String addr = this.clientAddr.getText();
+        String name = this.clientName.getText();
+        String phoneNumber = this.clientPhoneNumber.getText();
 
         Client c = new Client(name, phoneNumber, addr);
-        clientService.addOrUpdateClient(c);
+        this.clientService.addOrUpdateClient(c);
 
         try {
             this.sm.switchScene(event, FxmlView.MAIN_MENU);
@@ -103,11 +103,17 @@ public class ControlerAddClientMenu implements Initializable {
 
     @FXML
     public void cancelClient(ActionEvent event){
-        try {
-            this.sm.switchScene(event, FxmlView.MAIN_MENU);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //try {
+        //    this.sm.switchScene(event, FxmlView.MAIN_MENU);
+        //} catch (IOException e) {
+        //    e.printStackTrace();
+        //}
+
+        this.clientAddr.setText("");
+        this.clientName.setText("");
+        this.clientPhoneNumber.setText("");
+
+        this.displayMainMenu(event);
     }
 }
 

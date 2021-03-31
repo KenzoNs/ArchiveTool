@@ -1,5 +1,6 @@
 package application.controler;
 
+import application.entity.Client;
 import application.entity.Utilisateur;
 import application.model.UtilisateurSession;
 import application.service.ClientService;

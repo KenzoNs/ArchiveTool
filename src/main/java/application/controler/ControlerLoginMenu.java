@@ -78,13 +78,6 @@ public class ControlerLoginMenu implements Initializable{
             password = Utils.getSha256(password);
             Utilisateur utilisateur = utilisateurService.authentificed(login, password);
 
-            //start of tests to delete
-
-            Client c = clientService.findClientById(4);
-            System.out.println(c);
-
-            //end of tests to delete
-
             if(utilisateur != null) {
                 us.setUtilisateur(utilisateur);
                 this.sm.createStage(FxmlView.MAIN_MENU, true, true, true);

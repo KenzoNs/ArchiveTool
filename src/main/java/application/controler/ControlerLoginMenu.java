@@ -7,6 +7,7 @@ import application.service.ClientService;
 import application.service.ProduitService;
 import application.service.UtilisateurService;
 import application.tool.Utils;
+import application.view.ErrorMessages;
 import application.view.FxmlView;
 import application.view.StageManager;
 import javafx.application.Platform;
@@ -44,7 +45,7 @@ public class ControlerLoginMenu implements Initializable{
     private UtilisateurSession us = UtilisateurSession.getInstance();
 
     @FXML
-    private Text connexionError;
+    private Text textError;
 
     @FXML
     private Button connexionButton;
@@ -84,14 +85,12 @@ public class ControlerLoginMenu implements Initializable{
             }
             else{
                 this.passwordField.clear();
-                connexionError.setText("Identifiant ou mot de passe incorrect");
-                connexionError.setVisible(true);
+                Utils.displayErrorMessage(textError, ErrorMessages.INCORRECT_CREDENTIALS);
             }
         }
         else{
             if(login.equals("") || password.equals("")){
-                connexionError.setText("Tout les champs ne sont pas remplis");
-                connexionError.setVisible(true);
+                Utils.displayErrorMessage(textError, ErrorMessages.MISS_FIELD_ERROR);
             }
         }
     }

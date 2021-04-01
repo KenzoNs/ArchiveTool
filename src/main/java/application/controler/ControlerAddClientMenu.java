@@ -2,9 +2,11 @@ package application.controler;
 
 import application.entity.Client;
 import application.exception.AlreadyDisconnectException;
+import application.exception.PhoneNumberException;
 import application.model.UtilisateurSession;
 import application.service.ClientService;
 import application.tool.Utils;
+import application.view.ErrorMessages;
 import application.view.FxmlView;
 import application.view.StageManager;
 import javafx.event.ActionEvent;
@@ -58,6 +60,9 @@ public class ControlerAddClientMenu implements Initializable {
     @FXML
     private Button adminPanelButton;
 
+    @FXML
+    private Text errorText;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -87,33 +92,31 @@ public class ControlerAddClientMenu implements Initializable {
 
     @FXML
     public void addClient(ActionEvent event){
-        String addr = this.clientAddr.getText();
-        String name = this.clientName.getText();
-        String phoneNumber = this.clientPhoneNumber.getText();
 
-        Client c = new Client(name, phoneNumber, addr);
-        this.clientService.addOrUpdateClient(c);
-
-        try {
-            this.sm.switchScene(event, FxmlView.MAIN_MENU);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(this.clientName.getText().equals("") || this.clientAddr.getText().equals("") || this.clientPhoneNumber.getText().equals("")){
+            Utils.displayErrorMessage(this.errorText, ErrorMessages.MISS_FIELD_ERROR);
         }
-    }
+        else{
+            try {
+                String phoneNumber = this.clientPhoneNumber.getText();
+                if (Utils.testPhoneNumberFormat(phoneNumber)) {
+                    String addr = this.clientAddr.getText();
+                    String name = this.clientName.getText();
+                    Client c = new Client(name, phoneNumber, addr);
+                    this.clientService.addOrUpdateClient(c);
+                    try {
+                        Utils.displayInfoWindows("Produit crée avec succès");
+                        this.sm.switchScene(event, FxmlView.MAIN_MENU);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }catch (PhoneNumberException e) {
+                Utils.displayErrorMessage(this.errorText, ErrorMessages.INCORRECT_PHONE_NUMBER_FORMAT_TYPE);
+            }
 
-    @FXML
-    public void cancelClient(ActionEvent event){
-        //try {
-        //    this.sm.switchScene(event, FxmlView.MAIN_MENU);
-        //} catch (IOException e) {
-        //    e.printStackTrace();
-        //}
+        }
 
-        this.clientAddr.setText("");
-        this.clientName.setText("");
-        this.clientPhoneNumber.setText("");
-
-        this.displayMainMenu(event);
     }
 }
 

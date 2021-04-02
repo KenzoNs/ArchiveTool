@@ -28,6 +28,13 @@ public enum ErrorMessages {
         public String getText() {
             return "Le format du numéro de téléphone est incorrect. Format valide: 00 00 00 00 00";
         }
+    },
+
+    TO_SHORT {
+        @Override
+        public String getText() {
+            return "La taille des champs doit être supérieur ou égal à 3 caractères";
+        }
     };
 
     public abstract String getText();

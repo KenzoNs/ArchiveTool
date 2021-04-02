@@ -60,7 +60,32 @@ public enum FxmlView {
         public String getFxmlFile() {
             return "addProduitMenu.fxml";
         }
+    },
+
+    ADMIN_PANEL_MENU {
+        @Override
+        public String getTitle() {
+            return "Menu administrateur";
+        }
+
+        @Override
+        public String getFxmlFile() {
+            return "adminPanelMenu.fxml";
+        }
+    },
+
+    USERS_LIST_MENU {
+        @Override
+        public String getTitle() {
+            return "Liste des utilisateurs";
+        }
+
+        @Override
+        public String getFxmlFile() {
+            return "usersListMenu.fxml";
+        }
     };
+
 
 
     public abstract String getTitle();

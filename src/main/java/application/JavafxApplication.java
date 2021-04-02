@@ -36,7 +36,7 @@ public class JavafxApplication extends Application {
     public void start(Stage primaryStage){
         sm.setStage(primaryStage);
         sm.getStage().setScene(new Scene(this.root));
-        sm.configStage(false, false, true);
+        sm.configStage(false, false, false);
     }
 
     @Override

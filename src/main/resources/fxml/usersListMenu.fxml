@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane styleClass="background" stylesheets="@../css/common.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controler.ControlerUsersListMenu">
+    <children>
+        <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <bottom>
+                <HBox alignment="CENTER" BorderPane.alignment="CENTER" />
+            </bottom>
+            <top>
+                <BorderPane BorderPane.alignment="CENTER">
+                    <right>
+                        <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+                            <children>
+                                <Button fx:id="userButton" alignment="BASELINE_LEFT" graphicTextGap="5.0" minWidth="-Infinity" mnemonicParsing="false" prefWidth="180.0" text="None">
+                                    <HBox.margin>
+                                        <Insets right="20.0" />
+                                    </HBox.margin>
+                                    <graphic>
+                                        <ImageView fx:id="genderImage" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="adminPanelButton" minWidth="-Infinity" mnemonicParsing="false" prefHeight="47.0" prefWidth="180.0" text="Panel administrateur">
+                                    <HBox.margin>
+                                        <Insets right="20.0" />
+                                    </HBox.margin>
+                                </Button>
+                                <Button fx:id="disconnectButton" minWidth="-Infinity" mnemonicParsing="false" onAction="#disconnect" prefHeight="47.0" prefWidth="135.0" styleClass="disconnection-button" text="Déconnexion" />
+                            </children>
+                        </HBox>
+                    </right>
+                    <left>
+                        <HBox fx:id="hbox" BorderPane.alignment="CENTER">
+                            <children>
+                                <Button fx:id="homeButon" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#displayMainMenu">
+                                    <graphic>
+                                        <ImageView fitHeight="35.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../images/home.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <HBox.margin>
+                                        <Insets right="20.0" />
+                                    </HBox.margin>
+                                </Button>
+                                <TextField minWidth="-Infinity" prefHeight="47.0" prefWidth="250.0" promptText="Rechercher une transaction" styleClass="field" />
+                                <Button alignment="CENTER" mnemonicParsing="false" prefHeight="46.0" text="&gt;" />
+                                <Button minWidth="-Infinity" mnemonicParsing="false" prefHeight="46.0" prefWidth="130.0" styleClass="search-button" text="Rechercher">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </left>
+                </BorderPane>
+            </top>
+            <center>
+                <BorderPane prefHeight="500.0" prefWidth="1125.0" styleClass="foreground" BorderPane.alignment="CENTER">
+                    <BorderPane.margin>
+                        <Insets top="20.0" />
+                    </BorderPane.margin>
+                    <top>
+                        <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="None" BorderPane.alignment="CENTER">
+                            <BorderPane.margin>
+                                <Insets bottom="20.0" />
+                            </BorderPane.margin>
+                        </Text>
+                    </top>
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+                    <center>
+                        <VBox alignment="CENTER" prefHeight="406.0" BorderPane.alignment="CENTER">
+                            <children>
+                        <ScrollPane prefHeight="410.0" prefWidth="1085.0" styleClass="foreground" />
+                            </children>
+                        </VBox>
+                    </center>
+                </BorderPane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

@@ -22,7 +22,7 @@
             <bottom>
                 <HBox alignment="CENTER" BorderPane.alignment="CENTER">
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" textAlignment="CENTER" wrapText="true">
+                        <Button fx:id="validateButton" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" textAlignment="CENTER" wrapText="true">
                             <HBox.margin>
                                 <Insets right="350.0" />
                             </HBox.margin>
@@ -61,25 +61,13 @@
                     <right>
                         <HBox alignment="CENTER" BorderPane.alignment="CENTER">
                             <children>
-                                <Button alignment="CENTER" minWidth="-Infinity" mnemonicParsing="false" prefWidth="180.0">
-                                    <graphic>
-                                        <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="136.0">
-                                            <children>
-                                                <ImageView fitHeight="35.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
-                                                    <image>
-                                                        <Image url="@../images/man.png" />
-                                                    </image>
-                                                    <HBox.margin>
-                                                        <Insets right="10.0" />
-                                                    </HBox.margin>
-                                                </ImageView>
-                                                <Text fx:id="fullNameText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Nom Prénom" textAlignment="CENTER" />
-                                            </children>
-                                        </HBox>
-                                    </graphic>
+                                <Button fx:id="userButton" alignment="BASELINE_LEFT" graphicTextGap="5.0" minWidth="-Infinity" mnemonicParsing="false" prefWidth="180.0" text="None">
                                     <HBox.margin>
                                         <Insets right="20.0" />
                                     </HBox.margin>
+                           <graphic>
+                              <ImageView fx:id="genderImage" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
                                 </Button>
                                 <Button fx:id="adminPanelButton" minWidth="-Infinity" mnemonicParsing="false" prefHeight="47.0" prefWidth="180.0" text="Panel administrateur">
                                     <HBox.margin>
@@ -91,9 +79,9 @@
                         </HBox>
                     </right>
                     <left>
-                        <HBox fx:id="hbox" BorderPane.alignment="CENTER">
+                        <HBox BorderPane.alignment="CENTER">
                             <children>
-                                <Button fx:id="home" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#displayMainMenu">
+                                <Button fx:id="homeButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#displayMainMenu">
                                     <graphic>
                                         <ImageView fitHeight="35.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -123,7 +111,7 @@
                         <Insets bottom="20.0" top="20.0" />
                     </BorderPane.margin>
                     <top>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Créer une nouvelle transaction" BorderPane.alignment="CENTER">
+                        <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="None" BorderPane.alignment="CENTER">
                             <BorderPane.margin>
                                 <Insets bottom="20.0" />
                             </BorderPane.margin>

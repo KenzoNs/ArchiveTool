@@ -36,10 +36,6 @@ public class StageManager {
         applicationContext = ac;
     }
 
-    public void quit(){
-        Platform.exit();
-    }
-
     //----------------------------------- Stage -----------------------------------------------------//
 
     public Stage getStage(){
@@ -84,6 +80,10 @@ public class StageManager {
         fxmlView = target;
     }
 
+    public FxmlView getFxmlView(){
+        return fxmlView;
+    }
+
     public Scene createScene() throws IOException {
         return new Scene(this.load());
     }
@@ -95,11 +95,16 @@ public class StageManager {
         return loader.load();
     }
 
-    public void switchScene(ActionEvent e, FxmlView target) throws IOException {
+    public void switchScene(ActionEvent e, FxmlView target) {
         fxmlView = target;
         Scene scene = ((Node) e.getSource()).getScene();
         stage.setTitle(fxmlView.getTitle());
-        scene.setRoot(this.load());
+        try{
+            scene.setRoot(this.load());
+        }catch(IOException exception){
+            exception.getMessage();
+        }
+
     }
 
     //-----------------------------------------------------------------------------------------------//

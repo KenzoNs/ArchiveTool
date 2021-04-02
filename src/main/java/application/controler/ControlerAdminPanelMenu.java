@@ -20,45 +20,53 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 @Controller
-public class ControlerAddTransactionMenu implements Initializable {
+public class ControlerAdminPanelMenu implements Initializable {
 
     private UtilisateurSession utilisateurSession = UtilisateurSession.getInstance();
-
-    private EditElement editElement = EditElement.getInstance();
 
     private ArrayList<Button> aButton;
 
     private StageManager stageManager = StageManager.getInstance();
 
-    @FXML
-    private Button homeButton;
+    private EditElement editElement = EditElement.getInstance();
 
     @FXML
-    private Text title;
+     private Button userButton;
 
-    @FXML
-    private ImageView imageGender;
+     @FXML
+     private ImageView genderImage;
 
-    @FXML
-    private Button adminPanelButton;
+     @FXML
+     private Button adminPanelButton;
 
-    @FXML
-    private Button disconnectButton;
+     @FXML
+     private Button disconnectButton;
 
-    @FXML
-    private Button validateButton;
+     @FXML
+     private Button homeButton;
 
-    @FXML
-    private Button userButton;
+     @FXML
+     private Text title;
 
-    @FXML
-    private ImageView genderImage;
+     @FXML
+     private Button usersPanelButton;
+
+     @FXML
+     private Button transactionsPanelButton;
+
+     @FXML
+     private Button itemsPanelButton;
+
+     @FXML
+     private Button clientsPanelButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.aButton = new ArrayList<>();
-        this.aButton.add(this.homeButton);
-        this.aButton.add(this.validateButton);
+        this.aButton.add(this.usersPanelButton);
+        this.aButton.add(this.clientsPanelButton);
+        this.aButton.add(this.itemsPanelButton);
+        this.aButton.add(this.transactionsPanelButton);
         this.aButton.add(this.adminPanelButton);
 
         this.editElement.updateTitle(this.title);
@@ -82,18 +90,42 @@ public class ControlerAddTransactionMenu implements Initializable {
         }
     }
 
-    @FXML
-    public void displayMainMenu(ActionEvent event) throws IOException {
-        this.stageManager.switchScene(event, FxmlView.MAIN_MENU);
-    }
+     @FXML
+     void disconnect(ActionEvent event) {
+         try{
+             this.editElement.disconnect();
+         }catch (AlreadyDisconnectException e){
+             this.editElement.forceDisconnection();
+         }
+     }
 
-    @FXML
-    public void disconnect(ActionEvent event) {
-        try{
-            this.editElement.disconnect();
-        }catch (AlreadyDisconnectException e){
-            this.editElement.forceDisconnection();
-        }
-    }
+     @FXML
+     void displayAdminPanelMenu(ActionEvent event) {
+         this.stageManager.switchScene(event, FxmlView.ADMIN_PANEL_MENU);
+     }
 
+     @FXML
+     void displayClientsPanelMenu(ActionEvent event) {
+
+     }
+
+     @FXML
+     void displayItemsPanelMenu(ActionEvent event) {
+
+     }
+
+     @FXML
+     void displayMainMenu(ActionEvent event) {
+         this.stageManager.switchScene(event, FxmlView.MAIN_MENU);
+     }
+
+     @FXML
+     void displayTransactionsPanelMenu(ActionEvent event) {
+
+     }
+
+     @FXML
+     void displayUsersPanelMenu(ActionEvent event) {
+         this.stageManager.switchScene(event, FxmlView.USERS_LIST_MENU);
+     }
 }

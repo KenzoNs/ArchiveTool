@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane styleClass="background" stylesheets="@../css/common.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controler.ControlerMainMenu">
@@ -29,18 +30,21 @@
                   </Button>
                   <Button fx:id="addItem" contentDisplay="CENTER" mnemonicParsing="false" onAction="#displayAddItemMenu" prefHeight="100.0" prefWidth="200.0" text="Ajouter un produit" textAlignment="CENTER" wrapText="true" />
                </children>
+               <BorderPane.margin>
+                  <Insets top="20.0" />
+               </BorderPane.margin>
             </HBox>
          </bottom>
          <center>
             <BorderPane prefHeight="500.0" prefWidth="1125.0" styleClass="foreground" BorderPane.alignment="CENTER">
                <BorderPane.margin>
-                  <Insets bottom="20.0" top="20.0" />
+                  <Insets top="20.0" />
                </BorderPane.margin>
                <padding>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </padding>
                <top>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Menu principal" BorderPane.alignment="CENTER">
+                  <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="None" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets bottom="20.0" />
                      </BorderPane.margin>
@@ -60,27 +64,21 @@
                <right>
                   <HBox alignment="CENTER" BorderPane.alignment="CENTER">
                      <children>
-                        <Button alignment="CENTER" minWidth="-Infinity" mnemonicParsing="false" prefWidth="180.0">
-                           <graphic>
-                              <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="136.0">
-                                 <children>
-                                    <ImageView fitHeight="35.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/man.png" />
-                                       </image>
-                                       <HBox.margin>
-                                          <Insets right="10.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                    <Text fx:id="fullNameText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Nom Prénom" textAlignment="CENTER" />
-                                 </children>
-                              </HBox>
-                           </graphic>
+                        <Button fx:id="userButton" alignment="BASELINE_LEFT" ellipsisString="." graphicTextGap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="180.0" text="None" textAlignment="CENTER">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
+                           <font>
+                              <Font size="13.0" />
+                           </font>   
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <graphic>
+                              <ImageView fx:id="genderImage" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
                         </Button>
-                        <Button fx:id="adminPanelButton" minWidth="-Infinity" mnemonicParsing="false" prefHeight="47.0" prefWidth="180.0" text="Panel administrateur">
+                        <Button fx:id="adminPanelButton" minWidth="-Infinity" mnemonicParsing="false" onAction="#displayAdminPanelMenu" prefHeight="47.0" prefWidth="180.0" text="Panel administrateur">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
@@ -90,9 +88,9 @@
                   </HBox>
                </right>
                <left>
-                  <HBox fx:id="hbox" BorderPane.alignment="CENTER">
+                  <HBox BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="home" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#displayMainMenu">
+                        <Button fx:id="homeButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#displayMainMenu">
                            <graphic>
                               <ImageView fitHeight="35.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -112,6 +110,9 @@
                            </HBox.margin>
                         </Button>
                      </children>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
                   </HBox>
                </left>
             </BorderPane>

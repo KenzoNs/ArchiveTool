@@ -34,14 +34,6 @@ public class ControlerLoginMenu implements Initializable{
     @Autowired
     private UtilisateurService utilisateurService;
 
-    //to delete
-    @Autowired
-    private ProduitService produitService;
-
-    //to delete
-    @Autowired
-    private ClientService clientService;
-
     private UtilisateurSession us = UtilisateurSession.getInstance();
 
     @FXML
@@ -61,6 +53,7 @@ public class ControlerLoginMenu implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
     }
 
     @FXML
@@ -73,7 +66,6 @@ public class ControlerLoginMenu implements Initializable{
 
         String login = this.loginField.getText();
         String password = this.passwordField.getText();
-
 
         if(!login.equals("") && !password.equals("")){
             password = Utils.getSha256(password);
